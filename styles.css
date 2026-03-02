@@ -555,8 +555,8 @@ body {
 
 .contact-content {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 2rem;
+  flex-wrap: nowrap;
+  gap: 1rem 1.25rem;
 }
 
 .contact-link {
@@ -570,7 +570,8 @@ body {
   text-decoration: none;
   color: var(--text);
   transition: var(--transition);
-  min-width: 200px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 a.contact-link:hover {
@@ -691,11 +692,14 @@ a.contact-link:hover span:last-child {
   }
 
   .contact-content {
-    flex-direction: column;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .contact-link {
-    min-width: auto;
+    flex: 0 0 auto;
+    min-width: 200px;
   }
 }
 

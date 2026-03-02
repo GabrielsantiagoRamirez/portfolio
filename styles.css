@@ -572,6 +572,7 @@ body {
   transition: var(--transition);
   flex: 1 1 0;
   min-width: 0;
+  overflow: visible;
 }
 
 a.contact-link:hover {
@@ -588,6 +589,8 @@ a.contact-link:hover {
 .contact-link span:last-child {
   font-size: 0.95rem;
   color: var(--text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 a.contact-link:hover span:last-child {

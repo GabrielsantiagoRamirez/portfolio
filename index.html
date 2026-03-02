@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gabriel Santiago Ramirez Velazco - Desarrollador Junior | Frontend, Backend, Mobile y Bases de Datos">
+  <title>Gabriel Santiago Ramirez | Desarrollador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <a href="#hero" class="nav-logo">GSR</a>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#vision">Visión</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <canvas id="particles" class="hero-particles" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero-content">
+        <p class="hero-greeting">Hola, soy</p>
+        <h1 class="hero-name">Gabriel Santiago<br>Ramirez Velazco</h1>
+        <p class="hero-tagline">Construyendo soluciones digitales mientras evoluciono como desarrollador.</p>
+        <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Sobre mí</h2>
+        <div class="about-content" data-reveal>
+          <p class="about-text">
+            Desarrollador con <strong>2 años de experiencia</strong> en proyectos personales y reales. He participado en sistemas con impacto real: plataformas que superan los <strong>15.000 usuarios</strong>, donde asumí liderazgo en el módulo de juicios evaluativos y evidencias.
+          </p>
+          <p class="about-text">
+            Mi enfoque combina bases técnicas sólidas con una <strong>mentalidad de aprendizaje continuo</strong>. Busco crecer en entornos que valoren la mejora constante y las buenas prácticas. Ubicado en <strong>Funza, Cundinamarca (Colombia)</strong>, priorizo oportunidades <strong>presenciales</strong> para comenzar, con apertura a modalidad remota.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section stack">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Stack tecnológico</h2>
+        <div class="stack-grid">
+          <div class="stack-card" data-reveal>
+            <div class="stack-card-inner">
+              <h3 class="stack-card-title">Lenguajes</h3>
+              <ul class="stack-list">
+                <li>Dart</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Python</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stack-card" data-reveal>
+            <div class="stack-card-inner">
+              <h3 class="stack-card-title">Frameworks</h3>
+              <ul class="stack-list">
+                <li>Flutter</li>
+                <li>FastAPI</li>
+                <li>Node.js</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stack-card" data-reveal>
+            <div class="stack-card-inner">
+              <h3 class="stack-card-title">Backend</h3>
+              <ul class="stack-list">
+                <li>Firebase</li>
+                <li>AWS</li>
+                <li>Express</li>
+                <li>Django</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stack-card" data-reveal>
+            <div class="stack-card-inner">
+              <h3 class="stack-card-title">Bases de datos</h3>
+              <ul class="stack-list">
+                <li>Firestore</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+              </ul>
+            </div>
+          </div>
+          <div class="stack-card" data-reveal>
+            <div class="stack-card-inner">
+              <h3 class="stack-card-title">Herramientas</h3>
+              <ul class="stack-list">
+                <li>Git</li>
+                <li>GitHub</li>
+                <li>Postman</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Proyectos</h2>
+
+        <article class="featured-project" data-reveal>
+          <div class="featured-project-badge">Destacado</div>
+          <h3 class="featured-project-title">Sistema SENA CDA</h3>
+          <p class="featured-project-desc">
+            Plataforma académica para la gestión de información de administradores, instructores y aprendices. Con más de <strong>15.000 usuarios</strong>, participé activamente en el módulo de <strong>juicios evaluativos y evidencias</strong>: optimización de visualización de datos y coordinación del equipo en ese módulo.
+          </p>
+          <ul class="featured-project-highlights">
+            <li>+15.000 usuarios</li>
+            <li>Liderazgo en módulo de juicios y evidencias</li>
+            <li>Optimización de visualización de datos</li>
+          </ul>
+          <a href="https://senacda.com/sagi/" target="_blank" rel="noopener noreferrer" class="featured-project-link">Visitar sitio →</a>
+        </article>
+
+        <div class="other-projects">
+          <h3 class="other-projects-title" data-reveal>Otros proyectos</h3>
+          <div class="projects-grid">
+            <a href="https://github.com/GabrielsantiagoRamirez/super-market" class="project-card" data-reveal>
+              <div class="project-card-glow"></div>
+              <h4>Super Market</h4>
+              <p>Flujo completo de ecommerce básico.</p>
+            </a>
+            <a href="https://github.com/GabrielsantiagoRamirez/Valorant" class="project-card" data-reveal>
+              <div class="project-card-glow"></div>
+              <h4>Valorant Web Replica</h4>
+              <p>Recreación de la UI oficial 2023.</p>
+            </a>
+            <a href="https://github.com/GabrielsantiagoRamirez/basic-login-authentication" class="project-card" data-reveal>
+              <div class="project-card-glow"></div>
+              <h4>Login Authentication</h4>
+              <p>Firebase + Google Auth.</p>
+            </a>
+            <a href="https://github.com/GabrielsantiagoRamirez/Game-Station" class="project-card" data-reveal>
+              <div class="project-card-glow"></div>
+              <h4>Game Station</h4>
+              <p>Landing con redirección a videojuegos.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section vision">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Visión profesional</h2>
+        <div class="vision-content" data-reveal>
+          <p>
+            Mi objetivo es <strong>fortalecer conocimientos</strong> en Frontend, Backend, Mobile y Bases de Datos, aplicando <strong>buenas prácticas</strong> y arquitecturas escalables. Actualmente profundizo en <strong>Clean Architecture</strong> y patrones que mejoren la mantenibilidad del código.
+          </p>
+          <p>
+            Busco una empresa que impulse mi <strong>desarrollo profesional</strong>, donde pueda aportar pasión, compromiso y una actitud de mejora continua. No solo busco un puesto: busco un entorno donde crecer y contribuir con soluciones de calidad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title" data-reveal>Contacto</h2>
+        <div class="contact-content" data-reveal>
+          <a href="https://github.com/GabrielsantiagoRamirez" target="_blank" rel="noopener noreferrer" class="contact-link">
+            <span class="contact-icon">GitHub</span>
+            <span>github.com</span>
+          </a>
+          <div class="contact-link contact-link-place">
+            <span class="contact-icon">Ubicación</span>
+            <span>Funza, Cundinamarca — Colombia</span>
+          </div>
+          <a href="#" class="contact-link contact-link-linkedin">
+            <span class="contact-icon">LinkedIn</span>
+            <span>Próximamente</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Gabriel Santiago Ramirez Velazco. Hecho con dedicación.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

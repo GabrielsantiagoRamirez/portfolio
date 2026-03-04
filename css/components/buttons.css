@@ -1,0 +1,106 @@
+
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.45s forwards;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  color: var(--bg-deep);
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+/* Hero button group */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.45s forwards;
+}
+
+.hero-buttons .btn,
+.hero-buttons .btn-primary,
+.hero-buttons .btn-audio {
+  opacity: 1;
+  animation: none;
+}
+
+/* Audio button */
+.btn-audio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+.btn-audio:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--white);
+}
+
+.btn-audio.playing {
+  border-color: var(--accent);
+  background: rgba(0, 212, 255, 0.12);
+  color: var(--accent);
+}
+
+.btn-audio.playing .btn-audio-icon {
+  animation: pulse-dot 1s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.btn-audio-icon {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.btn-audio-icon::before {
+  content: '';
+  display: none;
+}
+
+/* Responsive: stack buttons on small screens */
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn,
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-audio {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,26 @@
+
+
+/* Core — design tokens & base */
+@import url('core/variables.css');
+@import url('core/base.css');
+
+/* Layout */
+@import url('layout/header.css');
+@import url('layout/sections.css');
+
+/* Components */
+@import url('components/buttons.css');
+
+/* Features — sections */
+@import url('features/hero.css');
+@import url('features/about.css');
+@import url('features/stack.css');
+@import url('features/certifications.css');
+@import url('features/projects.css');
+@import url('features/vision.css');
+@import url('features/contact.css');
+@import url('features/footer.css');
+
+/* Utils */
+@import url('utils/animations.css');
+@import url('utils/responsive.css');

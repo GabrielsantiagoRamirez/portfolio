@@ -1,0 +1,49 @@
+
+
+.contact {
+  background: var(--bg-deep);
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem 1.25rem;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: var(--transition);
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: visible;
+}
+
+a.contact-link:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  color: var(--accent);
+}
+
+.contact-icon {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.contact-link span:last-child {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+a.contact-link:hover span:last-child {
+  color: var(--text);
+}

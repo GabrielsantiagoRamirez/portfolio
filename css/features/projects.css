@@ -1,0 +1,138 @@
+
+
+.projects {
+  background: var(--bg-deep);
+}
+
+.featured-project {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.featured-project-badge {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: var(--bg-deep);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+.featured-project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.featured-project-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.featured-project-desc strong {
+  color: var(--text);
+}
+
+.featured-project-highlights {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.featured-project-highlights li {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.featured-project-highlights li::before {
+  content: '▹ ';
+}
+
+.featured-project-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.featured-project-link:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+.other-projects-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  position: relative;
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.project-card-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.project-card:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.project-card:hover .project-card-glow {
+  opacity: 0.15;
+}
+
+.project-card h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  position: relative;
+}

@@ -1,0 +1,20 @@
+
+
+:root {
+  --bg-deep: #060816;
+  --bg-dark: #0a0e27;
+  --bg-card: #0d1333;
+  --bg-card-hover: #121a42;
+  --accent: #00d4ff;
+  --accent-dim: #00a8cc;
+  --accent-glow: rgba(0, 212, 255, 0.25);
+  --text: #e8ecf4;
+  --text-muted: #8b9dc3;
+  --border: rgba(0, 212, 255, 0.15);
+  --white: #ffffff;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -153,4 +153,103 @@
       loop();
     }
   });
+
+  // ----- Contact marquee: scroll horizontal infinito -----
+  const marqueeTrack = document.getElementById('contact-marquee-track');
+  if (!marqueeTrack) return;
+
+  const marqueeGroups = marqueeTrack.querySelectorAll('.contact-marquee-group');
+  const firstGroup = marqueeGroups[0];
+  if (!firstGroup) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const PIXELS_PER_SECOND = 28;
+  let loopWidth = 0;
+  let position = 0;
+  let isDragging = false;
+  let didDrag = false;
+  let pointerStartX = 0;
+  let positionAtDragStart = 0;
+  let marqueeRafId = null;
+  const DRAG_THRESHOLD_PX = 5;
+
+  function getLoopWidth() {
+    return firstGroup.offsetWidth;
+  }
+
+  function normalizeOffset(value) {
+    const w = loopWidth;
+    if (w <= 0) return 0;
+    let v = value % w;
+    if (v > 0) v -= w;
+    return v;
+  }
+
+  function applyTransform() {
+    const x = normalizeOffset(position);
+    marqueeTrack.style.transform = `translate3d(${x}px, 0, 0)`;
+  }
+
+  function marqueeTick() {
+    if (!reducedMotion && !isDragging && loopWidth > 0) {
+      position -= (PIXELS_PER_SECOND / 60);
+      applyTransform();
+    }
+    marqueeRafId = requestAnimationFrame(marqueeTick);
+  }
+
+  function initMarquee() {
+    loopWidth = getLoopWidth();
+    applyTransform();
+    if (!marqueeRafId) marqueeRafId = requestAnimationFrame(marqueeTick);
+  }
+
+  function getPointerX(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
+  function onPointerDown(e) {
+    if (e.button !== 0 && !e.touches) return;
+    isDragging = true;
+    didDrag = false;
+    pointerStartX = getPointerX(e);
+    positionAtDragStart = position;
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    const x = getPointerX(e);
+    if (Math.abs(x - pointerStartX) >= DRAG_THRESHOLD_PX) didDrag = true;
+    position = positionAtDragStart + (pointerStartX - x);
+    applyTransform();
+  }
+
+  function onPointerUp() {
+    isDragging = false;
+  }
+
+  function onMarqueeClick(e) {
+    if (didDrag) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    didDrag = false;
+  }
+
+  initMarquee();
+  marqueeRafId = requestAnimationFrame(marqueeTick);
+
+  const marqueeEl = marqueeTrack.parentElement;
+  marqueeEl.addEventListener('mousedown', onPointerDown);
+  marqueeEl.addEventListener('touchstart', onPointerDown, { passive: true });
+  marqueeEl.addEventListener('click', onMarqueeClick, true);
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('touchmove', onPointerMove, { passive: true });
+  window.addEventListener('mouseup', onPointerUp);
+  window.addEventListener('touchend', onPointerUp);
+  window.addEventListener('resize', initMarquee);
+
+  if (reducedMotion) {
+    marqueeTrack.parentElement.setAttribute('aria-label', 'Opciones de contacto');
+  }
 })();

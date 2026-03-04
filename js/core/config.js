@@ -8,6 +8,8 @@ export const SELECTORS = {
   navLinks: '.nav-menu a',
   reveal: '[data-reveal]',
   particles: '#particles',
+  btnAudio: '#btn-audio',
+  audioPresentacion: '#audio-presentacion',
 };
 
 export const REVEAL_OPTIONS = {

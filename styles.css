@@ -1,7 +1,4 @@
-/* ============================================
-   PORTFOLIO GABRIEL SANTIAGO RAMIREZ VELAZCO
-   Estética futurista · Azul oscuro · 2026
-   ============================================ */
+
 
 :root {
   --bg-deep: #060816;
@@ -553,40 +550,30 @@ body {
   background: var(--bg-dark);
 }
 
-/* Marquee: contenedor de scroll horizontal infinito */
-.contact-marquee-wrapper {
+/* Wrapper: oculta el overflow para el efecto marquee */
+.contact-scroll-wrapper {
+  overflow: visible;
   width: 100%;
-  overflow: hidden;
-  padding-bottom: 0.5rem;
 }
 
-.contact-marquee {
-  overflow: hidden;
+/* Track que se mueve con translateX (GPU) */
+.contact-scroll-track {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
   width: 100%;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: pan-y pinch-zoom;
 }
 
-.contact-marquee:active {
-  cursor: grabbing;
+/* Cada “vuelta” del loop: 4 tarjetas */
+.contact-scroll-set:nth-child(2) {
+  display: none;
 }
 
-.contact-marquee-track {
+.contact-scroll-set {
   display: flex;
-  flex-wrap: nowrap;
-  width: max-content;
-  will-change: transform;
-  gap: 0;
-}
-
-.contact-marquee-group {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem 1.25rem;
-  flex-shrink: 0;
-  padding: 0 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  flex: 1 1 100%;
 }
 
 .contact-link {
@@ -599,11 +586,11 @@ body {
   border-radius: var(--radius);
   text-decoration: none;
   color: var(--text);
-  transition: border-color var(--transition), color var(--transition);
-  flex-shrink: 0;
+  transition: border-color var(--transition), color var(--transition), box-shadow var(--transition);
+  flex: 1 1 0;
   min-width: 200px;
+  max-width: 280px;
   overflow: visible;
-  pointer-events: auto;
 }
 
 a.contact-link:hover {
@@ -626,6 +613,58 @@ a.contact-link:hover {
 
 a.contact-link:hover span:last-child {
   color: var(--text);
+}
+
+/* Mobile: scroll horizontal infinito (marquee), de borde a borde sin franja */
+@media (max-width: 768px) {
+  .contact {
+    overflow-x: hidden;
+  }
+
+  .contact-scroll-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    touch-action: pan-y pinch-zoom;
+    box-sizing: border-box;
+  }
+
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-scroll-track {
+    width: max-content;
+    flex-wrap: nowrap;
+    will-change: transform;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-scroll-track:active {
+    cursor: grabbing;
+  }
+
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-scroll-set {
+    flex-wrap: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-scroll-set:nth-child(2) {
+    display: flex;
+  }
+
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-link {
+    flex: 0 0 auto;
+    min-width: 180px;
+    max-width: 240px;
+  }
+}
+
+/* Sin animación automática si el usuario prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .contact-scroll-wrapper.contact-marquee-enabled .contact-scroll-track {
+    cursor: default;
+  }
 }
 
 /* ----- FOOTER ----- */
@@ -725,22 +764,6 @@ a.contact-link:hover span:last-child {
     right: 0.75rem;
   }
 
-  .contact-marquee-group {
-    padding: 0 1rem;
-    gap: 0.75rem 1rem;
-  }
-
-  .contact-link {
-    min-width: 180px;
-    padding: 0.9rem 1rem;
-  }
-}
-
-/* Accesibilidad: sin animación para prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce) {
-  .contact-marquee-track {
-    will-change: auto;
-  }
 }
 
 @media (max-width: 480px) {

@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="assets/img/icon/app_icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/assets/img/icon/app_icon.png">
 </head>
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -25,7 +25,6 @@
       <ul class="nav-menu">
         <li><a href="#about">Sobre mí</a></li>
         <li><a href="#stack">Stack</a></li>
-        <li><a href="#certifications">Formación</a></li>
         <li><a href="#projects">Proyectos</a></li>
         <li><a href="#vision">Visión</a></li>
         <li><a href="#contact">Contacto</a></li>
@@ -44,17 +43,7 @@
         <p class="hero-greeting">Hola, soy</p>
         <h1 class="hero-name">Gabriel Santiago<br>Ramirez Velazco</h1>
         <p class="hero-tagline">Construyendo soluciones digitales mientras evoluciono como desarrollador.</p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
-          <button type="button" class="btn btn-audio" id="btn-audio" aria-label="Reproducir presentación en audio">
-            <span class="btn-audio-icon" aria-hidden="true"></span>
-            Escuchar mi presentación
-          </button>
-        </div>
-        <audio id="audio-presentacion" preload="metadata" aria-hidden="true">
-          <source src="assets/audio/presentacion.mp3" type="audio/mpeg">
-          Tu navegador no soporta reproducción de audio.
-        </audio>
+        <a href="#projects" class="btn btn-primary">Ver proyectos</a>
       </div>
       <div class="hero-scroll">
         <span>Scroll</span>
@@ -137,42 +126,6 @@
       </div>
     </section>
 
-    <section id="certifications" class="section certifications">
-      <div class="container">
-        <h2 class="section-title" data-reveal>Formación y certificaciones</h2>
-        <div class="certifications-grid">
-          <article class="certification-card certification-card--current" data-reveal>
-            <div class="certification-card-accent" aria-hidden="true"></div>
-            <div class="certification-card-badge certification-card-badge--current">En curso</div>
-            <h3 class="certification-card-title">Ingeniería de Sistemas</h3>
-            <p class="certification-card-org">Corporación Unificada Nacional de Educación Superior (CUN)</p>
-            <p class="certification-card-date">Jul 2024 – Actualidad</p>
-          </article>
-          <article class="certification-card" data-reveal>
-            <div class="certification-card-accent" aria-hidden="true"></div>
-            <div class="certification-card-badge">2023 – 2025</div>
-            <h3 class="certification-card-title">Tecnólogo en Análisis y Desarrollo de Software</h3>
-            <p class="certification-card-org">SENA — Centro de Biotecnología Agropecuaria (CBA), Mosquera</p>
-            <p class="certification-card-date">Jul 2023 – Oct 2025</p>
-          </article>
-          <article class="certification-card" data-reveal>
-            <div class="certification-card-accent" aria-hidden="true"></div>
-            <div class="certification-card-badge">2025</div>
-            <h3 class="certification-card-title">AWS Academy Cloud Foundations</h3>
-            <p class="certification-card-org">Amazon Web Services (AWS Academy)</p>
-            <p class="certification-card-date">2025</p>
-          </article>
-          <article class="certification-card" data-reveal>
-            <div class="certification-card-accent" aria-hidden="true"></div>
-            <div class="certification-card-badge">2022</div>
-            <h3 class="certification-card-title">Certificado de Inglés B1</h3>
-            <p class="certification-card-org">Kuepa Edutech</p>
-            <p class="certification-card-date">2022</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="projects" class="section projects">
       <div class="container">
         <h2 class="section-title" data-reveal>Proyectos</h2>
@@ -194,32 +147,25 @@
         <div class="other-projects">
           <h3 class="other-projects-title" data-reveal>Otros proyectos</h3>
           <div class="projects-grid">
-            <a href="https://gabrielsantiagoramirez.github.io/Game-Station/" class="project-card" data-reveal>
-              <div class="project-card-glow"></div>
-              <h4>Game Station</h4>
-              <p>Landing con redirección a videojuegos.</p>
-            </a>
-            <a href="https://gabrielsantiagoramirez.github.io/music/" class="project-card" data-reveal>
-              <div class="project-card-glow"></div>
-              <h4>Music Player</h4>
-              <p>Player de música con reproducción de audio.</p>
-            </a>
-            <a href="https://gabrielsantiagoramirez.github.io/super-market/" class="project-card" data-reveal>
+            <a href="https://github.com/GabrielsantiagoRamirez/super-market" class="project-card" data-reveal>
               <div class="project-card-glow"></div>
               <h4>Super Market</h4>
               <p>Flujo completo de ecommerce básico.</p>
             </a>
-            <!--<a href="https://gabrielsantiagoramirez.github.io/Valorant/" class="project-card" data-reveal>
+            <a href="https://github.com/GabrielsantiagoRamirez/Valorant" class="project-card" data-reveal>
               <div class="project-card-glow"></div>
               <h4>Valorant Web Replica</h4>
-              <p>Recreación de la UI oficial 2023.
-                (Vista solamente para Computador)
-              </p>
-            </a>-->
-            <a href="https://gabrielsantiagoramirez.github.io/basic-login-authentication/index.html" class="project-card" data-reveal>
+              <p>Recreación de la UI oficial 2023.</p>
+            </a>
+            <a href="https://github.com/GabrielsantiagoRamirez/basic-login-authentication" class="project-card" data-reveal>
               <div class="project-card-glow"></div>
               <h4>Login Authentication</h4>
               <p>Firebase + Google Auth.</p>
+            </a>
+            <a href="https://github.com/GabrielsantiagoRamirez/Game-Station" class="project-card" data-reveal>
+              <div class="project-card-glow"></div>
+              <h4>Game Station</h4>
+              <p>Landing con redirección a videojuegos.</p>
             </a>
           </div>
         </div>
@@ -243,11 +189,9 @@
     <section id="contact" class="section contact">
       <div class="container">
         <h2 class="section-title" data-reveal>Contacto</h2>
-      </div>
-      <div class="contact-marquee-wrapper" data-reveal>
-        <div class="contact-marquee" aria-label="Opciones de contacto en desplazamiento">
-          <div class="contact-marquee-track" id="contact-marquee-track">
-            <div class="contact-marquee-group">
+        <div class="contact-scroll-wrapper" data-reveal aria-label="Opciones de contacto en desplazamiento horizontal">
+          <div class="contact-scroll-track" data-contact-track>
+            <div class="contact-scroll-set">
               <a href="https://github.com/GabrielsantiagoRamirez" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <span class="contact-icon">GitHub</span>
                 <span>github.com/GabrielsantiagoRamirez</span>
@@ -265,7 +209,7 @@
                 <span>linkedin.com/in/gabrielrsrv</span>
               </a>
             </div>
-            <div class="contact-marquee-group" aria-hidden="true">
+            <div class="contact-scroll-set" aria-hidden="true">
               <a href="https://github.com/GabrielsantiagoRamirez" target="_blank" rel="noopener noreferrer" class="contact-link">
                 <span class="contact-icon">GitHub</span>
                 <span>github.com/GabrielsantiagoRamirez</span>
@@ -295,6 +239,6 @@
     </div>
   </footer>
 
-  <script type="module" src="js/main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

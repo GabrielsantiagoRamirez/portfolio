@@ -1,0 +1,62 @@
+
+
+.stack {
+  background: var(--bg-deep);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.stack-card {
+  perspective: 800px;
+}
+
+.stack-card-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: var(--transition);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-card:hover .stack-card-inner {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.stack-card-title {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.stack-list {
+  list-style: none;
+}
+
+.stack-list li {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color var(--transition);
+}
+
+.stack-list li:last-child {
+  border-bottom: none;
+}
+
+.stack-card:hover .stack-list li {
+  color: var(--text);
+}

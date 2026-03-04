@@ -154,102 +154,136 @@
     }
   });
 
-  // ----- Contact marquee: scroll horizontal infinito -----
-  const marqueeTrack = document.getElementById('contact-marquee-track');
-  if (!marqueeTrack) return;
+  // ----- Contact: scroll horizontal infinito solo en mobile -----
+  const contactTrack = document.querySelector('[data-contact-track]');
+  const wrapper = contactTrack ? contactTrack.closest('.contact-scroll-wrapper') : null;
+  if (!contactTrack || !wrapper) return;
 
-  const marqueeGroups = marqueeTrack.querySelectorAll('.contact-marquee-group');
-  const firstGroup = marqueeGroups[0];
-  if (!firstGroup) return;
-
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const PIXELS_PER_SECOND = 28;
-  let loopWidth = 0;
+  const sets = contactTrack.querySelectorAll('.contact-scroll-set');
+  const firstSet = sets[0];
+  if (!firstSet) return;
+
+  const SPEED = 0.4;
+  const FRICTION = 0.92;
+
   let position = 0;
+  let velocity = 0;
+  let oneSetWidth = 0;
+  let rafId = null;
   let isDragging = false;
-  let didDrag = false;
-  let pointerStartX = 0;
-  let positionAtDragStart = 0;
-  let marqueeRafId = null;
-  const DRAG_THRESHOLD_PX = 5;
+  let dragStartX = 0;
+  let autoScrollEnabled = !reducedMotion;
 
-  function getLoopWidth() {
-    return firstGroup.offsetWidth;
+  function isMarqueeActive() {
+    return mobileQuery.matches && wrapper.classList.contains('contact-marquee-enabled');
   }
 
-  function normalizeOffset(value) {
-    const w = loopWidth;
-    if (w <= 0) return 0;
-    let v = value % w;
-    if (v > 0) v -= w;
-    return v;
+  function getOneSetWidth() {
+    const gap = 20;
+    return firstSet.offsetWidth + gap;
   }
 
-  function applyTransform() {
-    const x = normalizeOffset(position);
-    marqueeTrack.style.transform = `translate3d(${x}px, 0, 0)`;
+  function setTransform(x) {
+    position = x;
+    contactTrack.style.transform = `translate3d(${position}px, 0, 0)`;
   }
 
-  function marqueeTick() {
-    if (!reducedMotion && !isDragging && loopWidth > 0) {
-      position -= (PIXELS_PER_SECOND / 60);
-      applyTransform();
+  function loopReset() {
+    if (oneSetWidth <= 0) return;
+    while (position > 0) position -= oneSetWidth;
+    while (position < -oneSetWidth) position += oneSetWidth;
+  }
+
+  function tick() {
+    if (!isMarqueeActive()) {
+      rafId = requestAnimationFrame(tick);
+      return;
     }
-    marqueeRafId = requestAnimationFrame(marqueeTick);
-  }
-
-  function initMarquee() {
-    loopWidth = getLoopWidth();
-    applyTransform();
-    if (!marqueeRafId) marqueeRafId = requestAnimationFrame(marqueeTick);
-  }
-
-  function getPointerX(e) {
-    return e.touches ? e.touches[0].clientX : e.clientX;
+    if (isDragging) {
+      loopReset();
+      setTransform(position);
+    } else {
+      if (Math.abs(velocity) > 0.02) {
+        position += velocity;
+        velocity *= FRICTION;
+      }
+      if (autoScrollEnabled) {
+        position -= SPEED;
+      }
+      loopReset();
+      setTransform(position);
+    }
+    rafId = requestAnimationFrame(tick);
   }
 
   function onPointerDown(e) {
-    if (e.button !== 0 && !e.touches) return;
+    if (!isMarqueeActive() || reducedMotion) return;
     isDragging = true;
-    didDrag = false;
-    pointerStartX = getPointerX(e);
-    positionAtDragStart = position;
+    dragStartX = e.clientX ?? e.touches[0].clientX;
+    velocity = 0;
   }
 
   function onPointerMove(e) {
-    if (!isDragging) return;
-    const x = getPointerX(e);
-    if (Math.abs(x - pointerStartX) >= DRAG_THRESHOLD_PX) didDrag = true;
-    position = positionAtDragStart + (pointerStartX - x);
-    applyTransform();
+    if (!isDragging || !isMarqueeActive()) return;
+    const clientX = e.clientX ?? e.touches[0].clientX;
+    const delta = clientX - dragStartX;
+    dragStartX = clientX;
+    velocity = delta;
+    position += delta;
+    setTransform(position);
+    loopReset();
   }
 
   function onPointerUp() {
+    if (!isDragging) return;
     isDragging = false;
   }
 
-  function onMarqueeClick(e) {
-    if (didDrag) {
-      e.preventDefault();
-      e.stopPropagation();
+  function updateMarqueeMode() {
+    if (mobileQuery.matches) {
+      wrapper.classList.add('contact-marquee-enabled');
+      contactTrack.style.transform = '';
+      oneSetWidth = getOneSetWidth();
+      if (oneSetWidth > 0) {
+        position = 0;
+        velocity = 0;
+        setTransform(0);
+        if (!rafId && autoScrollEnabled) rafId = requestAnimationFrame(tick);
+      }
+    } else {
+      wrapper.classList.remove('contact-marquee-enabled');
+      contactTrack.style.transform = '';
+      position = 0;
+      velocity = 0;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
     }
-    didDrag = false;
   }
 
-  initMarquee();
-  marqueeRafId = requestAnimationFrame(marqueeTick);
-
-  const marqueeEl = marqueeTrack.parentElement;
-  marqueeEl.addEventListener('mousedown', onPointerDown);
-  marqueeEl.addEventListener('touchstart', onPointerDown, { passive: true });
-  marqueeEl.addEventListener('click', onMarqueeClick, true);
-  window.addEventListener('mousemove', onPointerMove);
-  window.addEventListener('touchmove', onPointerMove, { passive: true });
+  contactTrack.addEventListener('mousedown', onPointerDown, { passive: true });
+  contactTrack.addEventListener('touchstart', onPointerDown, { passive: true });
+  window.addEventListener('mousemove', onPointerMove, { passive: true });
   window.addEventListener('mouseup', onPointerUp);
-  window.addEventListener('touchend', onPointerUp);
-  window.addEventListener('resize', initMarquee);
+  window.addEventListener('mouseleave', onPointerUp);
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging && isMarqueeActive()) {
+      e.preventDefault();
+      onPointerMove(e);
+    }
+  }, { passive: false });
+  contactTrack.addEventListener('touchend', onPointerUp);
+  contactTrack.addEventListener('touchcancel', onPointerUp);
 
-  if (reducedMotion) {
-    marqueeTrack.parentElement.setAttribute('aria-label', 'Opciones de contacto');
-  }
+  mobileQuery.addEventListener('change', updateMarqueeMode);
+  updateMarqueeMode();
+  window.addEventListener('resize', () => {
+    if (isMarqueeActive()) {
+      oneSetWidth = getOneSetWidth();
+      loopReset();
+    }
+  });
 })();

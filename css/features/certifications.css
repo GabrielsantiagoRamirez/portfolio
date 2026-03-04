@@ -1,0 +1,124 @@
+
+
+.certifications {
+  background: var(--bg-dark);
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.certification-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.75rem 1.75rem 2.25rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.certification-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dim));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.certification-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.certification-card:hover::before {
+  opacity: 1;
+}
+
+.certification-card--current {
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.certification-card--current::before {
+  opacity: 0.6;
+}
+
+.certification-card-accent {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.certification-card-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--bg-deep);
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.certification-card-badge--current {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 168, 204, 0.4));
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+}
+
+.certification-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+}
+
+.certification-card-org {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.certification-card-date {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .certification-card {
+    padding: 1.5rem 1.25rem 1.5rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certification-card-title {
+    font-size: 1rem;
+  }
+
+  .certification-card-org {
+    font-size: 0.85rem;
+  }
+}

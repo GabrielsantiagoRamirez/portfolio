@@ -1,0 +1,20 @@
+
+
+.vision {
+  background: var(--bg-deep);
+}
+
+.vision-content {
+  max-width: 680px;
+}
+
+.vision-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.vision-content strong {
+  color: var(--text);
+  font-weight: 500;
+}

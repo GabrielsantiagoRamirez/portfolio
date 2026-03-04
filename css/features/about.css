@@ -1,0 +1,20 @@
+
+
+.about {
+  background: var(--bg-dark);
+}
+
+.about-content {
+  max-width: 680px;
+}
+
+.about-text {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.about-text strong {
+  color: var(--text);
+  font-weight: 500;
+}

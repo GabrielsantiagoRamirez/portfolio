@@ -43,7 +43,17 @@
         <p class="hero-greeting">Hola, soy</p>
         <h1 class="hero-name">Gabriel Santiago<br>Ramirez Velazco</h1>
         <p class="hero-tagline">Construyendo soluciones digitales mientras evoluciono como desarrollador.</p>
-        <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+          <button type="button" class="btn btn-audio" id="btn-audio" aria-label="Reproducir presentación en audio">
+            <span class="btn-audio-icon" aria-hidden="true"></span>
+            Escuchar mi presentación
+          </button>
+        </div>
+        <audio id="audio-presentacion" preload="metadata" aria-hidden="true">
+          <source src="assets/audio/presentacion.mp3" type="audio/mpeg">
+          Tu navegador no soporta reproducción de audio.
+        </audio>
       </div>
       <div class="hero-scroll">
         <span>Scroll</span>

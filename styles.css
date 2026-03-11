@@ -706,6 +706,196 @@ body {
   font-weight: 500;
 }
 
+
+.ai-flow {
+  background: var(--bg-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-flow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--accent), var(--border), transparent);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.ai-flow-intro {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.ai-flow-intro strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.ai-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+  .ai-flow-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ai-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.ai-card-glow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 80%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.ai-card--cursor .ai-card-glow {
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 65%);
+}
+
+.ai-card--notebook .ai-card-glow {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 65%);
+}
+
+.ai-card--chatgpt .ai-card-glow {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 65%);
+}
+
+.ai-card--claude .ai-card-glow {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 65%);
+}
+
+.ai-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.ai-card:hover .ai-card-glow {
+  opacity: 1;
+}
+
+.ai-card--cursor:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 212, 255, 0.08);
+}
+
+.ai-card--notebook:hover {
+  border-color: rgba(168, 85, 247, 0.35);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.08);
+}
+
+.ai-card--chatgpt:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.08);
+}
+
+.ai-card--claude:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 16px 40px rgba(245, 158, 11, 0.08);
+}
+
+.ai-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ai-card-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  filter: grayscale(0.2);
+}
+
+.ai-card-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ai-card--notebook .ai-card-label {
+  color: #a78bfa;
+}
+
+.ai-card--chatgpt .ai-card-label {
+  color: #34d399;
+}
+
+.ai-card--claude .ai-card-label {
+  color: #fbbf24;
+}
+
+.ai-card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.ai-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.ai-card-desc strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .ai-flow-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-flow-intro {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .ai-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-flow-grid {
+    max-width: 100%;
+  }
+}
+
 /* ----- CONTACT ----- */
 .contact {
   background: var(--bg-deep);
@@ -752,6 +942,18 @@ body {
   min-width: 200px;
   max-width: 280px;
   overflow: visible;
+}
+
+/* Intercalado: tarjetas impares (1ª, 3ª) — tono cyan */
+.contact-scroll-set .contact-link:nth-child(odd) {
+  background: rgba(0, 212, 255, 0.06);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* Intercalado: tarjetas pares (2ª, 4ª) — tono más neutro/oscuro */
+.contact-scroll-set .contact-link:nth-child(even) {
+  background: var(--bg-card-hover);
+  border-color: rgba(139, 157, 195, 0.2);
 }
 
 a.contact-link:hover {

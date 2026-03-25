@@ -212,6 +212,35 @@ body {
   animation: fade-up 0.8s ease 0.3s forwards;
 }
 
+/* Escritorio ancho: más presencia visual (el hero sigue centrado; solo crece un poco el bloque) */
+@media (min-width: 1100px) {
+  .nav-menu {
+    gap: 1.75rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.95rem;
+  }
+
+  .hero-content {
+    max-width: 860px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.85rem, 4.5vw, 4.85rem);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.05rem, 1.15vw + 0.65rem, 1.35rem);
+    max-width: 620px;
+  }
+
+  .hero-audio {
+    max-width: 460px;
+    padding: 1.1rem 1.35rem;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 0.9rem 1.8rem;
@@ -246,7 +275,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem 1.25rem;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   opacity: 0;
   animation: fade-up 0.8s ease 0.45s forwards;
 }
@@ -255,6 +284,7 @@ body {
 .hero-buttons .btn-primary {
   opacity: 1;
   animation: none;
+  flex-shrink: 0;
 }
 
 .hero-audio {

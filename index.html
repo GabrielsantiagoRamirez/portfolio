@@ -216,6 +216,27 @@
           <a href="https://senacda.com/sagi/" target="_blank" rel="noopener noreferrer" class="featured-project-link">Visitar sitio →</a>
         </article>
 
+        <article class="featured-project featured-project--personal" data-reveal>
+          <div class="featured-project-badge featured-project-badge--production">En producción</div>
+          <h3 class="featured-project-title">Album Collect 2026</h3>
+          <p class="featured-project-desc">
+            Este trabajo lo desarrollé <strong>junto a <a href="https://alsahim0420.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Pablo Melo</a></strong> (Mobile Developer). Es el <strong>proyecto personal de mayor alcance</strong> que hemos llevado hasta ahora: una <strong>app publicada en Google Play</strong> para el álbum del mundial 2026, con enfoque <strong>offline-first</strong> y lanzamiento a <strong>producción real</strong>.
+          </p>
+          <ul class="featured-project-highlights">
+            <li>Publicada en Google Play</li>
+            <li>Funciona sin conexión (offline-first)</li>
+            <li>Flutter · Hive</li>
+          </ul>
+          <div class="featured-project-actions">
+            <button type="button" class="featured-project-link featured-project-link--modal" data-project-modal-open
+              aria-haspopup="dialog"
+              data-title="Album Collect 2026"
+              data-description="App móvil desarrollada en colaboración con Pablo Melo. Permite registrar stickers obtenidos, faltantes y duplicados del álbum del mundial 2026. Funciona sin internet y ofrece una experiencia rápida y sencilla."
+              data-playstore="https://play.google.com/store/apps/details?id=com.app.albumcollect&amp;hl=es_CO"
+              data-appstore="">Detalles y App Store →</button>
+          </div>
+        </article>
+
         <div class="other-projects">
           <h3 class="other-projects-title" data-reveal>Otros proyectos</h3>
           <div class="projects-grid">
@@ -381,6 +402,20 @@
     </div>
   </footer>
 
+  <dialog class="project-modal" data-project-modal aria-labelledby="project-modal-title">
+    <div class="project-modal__panel">
+      <button type="button" class="project-modal__close" data-modal-close aria-label="Cerrar">&times;</button>
+      <h3 id="project-modal-title" class="project-modal__title" data-modal-title></h3>
+      <p class="project-modal__desc" data-modal-desc></p>
+      <div class="project-modal__stores">
+        <span class="project-modal__soon" data-appstore-soon>Próximamente en App Store</span>
+        <a data-appstore href="#" target="_blank" rel="noopener noreferrer" class="btn project-modal__store" hidden>App Store</a>
+        <a data-playstore href="#" target="_blank" rel="noopener noreferrer" class="btn project-modal__store">Google Play</a>
+      </div>
+    </div>
+  </dialog>
+
   <script src="script.js"></script>
+  <script type="module" src="js/modal-boot.js"></script>
 </body>
 </html>

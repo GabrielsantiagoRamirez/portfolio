@@ -593,6 +593,17 @@ body {
   color: var(--text);
 }
 
+.featured-project-desc a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.featured-project-desc a:hover {
+  color: var(--white);
+}
+
 .featured-project-highlights {
   list-style: none;
   display: flex;
@@ -623,6 +634,37 @@ body {
 .featured-project-link:hover {
   color: var(--white);
   transform: translateX(4px);
+}
+
+.featured-project--personal {
+  border-color: rgba(52, 211, 153, 0.22);
+  box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.06);
+}
+
+.featured-project-badge--production {
+  background: linear-gradient(135deg, #34d399, #059669);
+}
+
+.featured-project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 1.25rem;
+}
+
+.featured-project .featured-project-btn {
+  opacity: 1;
+  animation: none;
+}
+
+button.featured-project-link {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
 }
 
 .other-projects-title {
@@ -684,6 +726,144 @@ body {
   font-size: 0.9rem;
   color: var(--text-muted);
   position: relative;
+}
+
+button.project-card {
+  appearance: none;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-card--modal .formation-entity {
+  margin-bottom: 0;
+  margin-top: 0.35rem;
+}
+
+.project-modal {
+  padding: 0;
+  border: none;
+  max-width: min(480px, 92vw);
+  width: min(480px, 92vw);
+  background: transparent;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  max-height: min(90vh, calc(100dvh - 2rem));
+  overflow: auto;
+}
+
+.project-modal::backdrop {
+  background: rgba(6, 8, 22, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.project-modal__panel {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+}
+
+.project-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: color var(--transition), background var(--transition);
+}
+
+.project-modal__close:hover {
+  color: var(--text);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.project-modal__title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.project-modal__desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.project-modal__stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.project-modal .btn {
+  opacity: 1;
+  animation: none;
+}
+
+.project-modal__store {
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: rgba(0, 212, 255, 0.06);
+  color: var(--text);
+}
+
+.project-modal__store:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.project-modal__store.primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  color: var(--bg-deep);
+  border: none;
+  box-shadow: 0 4px 24px var(--accent-glow);
+}
+
+.project-modal__store.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--accent-glow);
+  color: var(--bg-deep);
+}
+
+.project-modal__soon {
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.project-modal__soon[hidden] {
+  display: none;
+}
+
+/* .btn puede anular [hidden] por especificidad; forzar oculto en el modal */
+.project-modal [hidden] {
+  display: none !important;
 }
 
 /* ----- VISIÓN ----- */

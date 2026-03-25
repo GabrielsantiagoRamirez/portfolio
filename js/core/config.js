@@ -10,6 +10,7 @@ export const SELECTORS = {
   particles: '#particles',
   btnAudio: '#btn-audio',
   audioPresentacion: '#audio-presentacion',
+  audioVolume: '#audio-volume',
 };
 
 export const REVEAL_OPTIONS = {

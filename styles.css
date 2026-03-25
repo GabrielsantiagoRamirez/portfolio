@@ -636,7 +636,7 @@ body {
   transform: translateX(4px);
 }
 
-.featured-project--personal {
+.featured-project--team {
   border-color: rgba(52, 211, 153, 0.22);
   box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.06);
 }

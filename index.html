@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Gabriel Santiago Ramirez Velazco - Desarrollador Junior | Frontend, Backend, Mobile y Bases de Datos">
   <title>Gabriel Santiago Ramirez | Desarrollador</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,27 @@
         <p class="hero-greeting">Hola, soy</p>
         <h1 class="hero-name">Gabriel Santiago<br>Ramirez Velazco</h1>
         <p class="hero-tagline">Desarrollador Junior en formación · Construyendo proyectos reales y aprendiendo con cada línea de código.</p>
-        <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Ver proyectos</a>
+          <div class="hero-audio" role="group" aria-labelledby="hero-audio-heading">
+            <p id="hero-audio-heading" class="hero-audio-label">Presentación en audio</p>
+            <audio id="audio-presentacion" preload="metadata" src="assets/audio/presentacion.mp3"></audio>
+            <div class="hero-audio-row">
+              <button type="button" id="btn-audio" class="btn btn-audio" aria-label="Reproducir presentación en audio">
+                <span class="btn-audio-icon" aria-hidden="true"></span>
+                <span class="btn-audio-text">Escuchar</span>
+              </button>
+              <div class="hero-audio-volume">
+                <span class="hero-audio-volume-label" id="audio-volume-label">Volumen</span>
+                <div class="hero-audio-volume-track">
+                  <span class="hero-audio-volume-low" aria-hidden="true"></span>
+                  <input type="range" id="audio-volume" class="hero-audio-slider" min="0" max="100" value="75" step="5" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-labelledby="audio-volume-label" />
+                  <span class="hero-audio-volume-high" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="hero-scroll">
         <span>Scroll</span>

@@ -10,6 +10,13 @@ function syncVolumeAria(slider, value) {
   slider.setAttribute('aria-valuenow', String(value));
 }
 
+function getAudioLabel(playing) {
+  if (document.documentElement.lang === 'en') {
+    return playing ? 'Pause introduction' : 'Play audio introduction';
+  }
+  return playing ? 'Pausar presentación' : 'Reproducir presentación en audio';
+}
+
 export function initAudio() {
   const btn = document.querySelector(SELECTORS.btnAudio);
   const audio = document.querySelector(SELECTORS.audioPresentacion);
@@ -44,16 +51,16 @@ export function initAudio() {
     if (audio.paused) {
       audio.play().catch(() => {});
       btn.classList.add('playing');
-      btn.setAttribute('aria-label', 'Pausar presentación');
+      btn.setAttribute('aria-label', getAudioLabel(true));
     } else {
       audio.pause();
       btn.classList.remove('playing');
-      btn.setAttribute('aria-label', 'Reproducir presentación en audio');
+      btn.setAttribute('aria-label', getAudioLabel(false));
     }
   });
 
   audio.addEventListener('ended', () => {
     btn.classList.remove('playing');
-    btn.setAttribute('aria-label', 'Reproducir presentación en audio');
+    btn.setAttribute('aria-label', getAudioLabel(false));
   });
 }

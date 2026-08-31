@@ -31,6 +31,7 @@
         <li><a href="#vision">Visión</a></li>
         <li><a href="#ai">IA en mi flujo</a></li>
         <li><a href="#contact">Contacto</a></li>
+        <li><a href="#cv">CV</a></li>
       </ul>
     </nav>
   </header>
@@ -237,7 +238,7 @@
           <a href="https://senacda.com/sagi/" target="_blank" rel="noopener noreferrer" class="featured-project-link">Visitar sitio →</a>
         </article>
 
-        <article class="featured-project featured-project--team" data-reveal>
+        <article class="featured-project featured-project--team featured-project--album" data-reveal>
           <div class="featured-project-badge featured-project-badge--production">En producción</div>
           <h3 class="featured-project-title">Album Collect 2026</h3>
           <p class="featured-project-desc">
@@ -253,8 +254,61 @@
               aria-haspopup="dialog"
               data-title="Album Collect 2026"
               data-description="Proyecto en equipo con Pablo Melo. App móvil para registrar stickers obtenidos, faltantes y duplicados del álbum del mundial 2026. Funciona sin internet y ofrece una experiencia rápida y sencilla."
+              data-description-en="Team project with Pablo Melo. Mobile app for tracking collected, missing, and duplicate stickers from the 2026 World Cup album. It works offline and offers a fast, simple experience."
               data-playstore="https://play.google.com/store/apps/details?id=com.app.albumcollect&amp;hl=es_CO"
               data-appstore="">Detalles y App Store →</button>
+          </div>
+        </article>
+
+        <article class="featured-project featured-project--app featured-project--ciervo" data-reveal>
+          <div class="featured-project-badge featured-project-badge--production">En producción</div>
+          <div class="featured-project-head">
+            <img class="featured-project-icon" src="assets/img/apps/ciervo.png" alt="Logo Ciervo Club" width="64" height="64" loading="lazy">
+            <h3 class="featured-project-title">Ciervo Club</h3>
+          </div>
+          <p class="featured-project-desc">
+            App de <strong>entretenimiento</strong> del ecosistema <strong>Ciervo</strong>: experiencias y contenido sin límites. Publicada en <strong>Google Play</strong> y con landing oficial en <strong>ciervo.club</strong>.
+          </p>
+          <ul class="featured-project-highlights">
+            <li>Publicada en Google Play</li>
+            <li>Landing oficial</li>
+            <li>Entretenimiento · Flutter</li>
+          </ul>
+          <div class="featured-project-actions">
+            <a href="https://ciervo.club/" target="_blank" rel="noopener noreferrer" class="featured-project-link">Visitar landing →</a>
+            <button type="button" class="featured-project-link featured-project-link--modal" data-project-modal-open
+              aria-haspopup="dialog"
+              data-title="Ciervo Club"
+              data-description="App de entretenimiento del ecosistema Ciervo. Disponible en Google Play y con sitio oficial en ciervo.club."
+              data-description-en="Entertainment app from the Ciervo ecosystem. Available on Google Play with an official site at ciervo.club."
+              data-playstore="https://play.google.com/store/apps/details?id=com.company.ciervoclub&amp;hl=es_CO"
+              data-website="https://ciervo.club/"
+              data-appstore="">Detalles y tiendas →</button>
+          </div>
+        </article>
+
+        <article class="featured-project featured-project--app featured-project--ubitt" data-reveal>
+          <div class="featured-project-badge featured-project-badge--launching">En lanzamiento</div>
+          <div class="featured-project-head">
+            <img class="featured-project-icon" src="assets/img/apps/ubitt.jpg" alt="Logo Ubitt" width="64" height="64" loading="lazy">
+            <h3 class="featured-project-title">Ubitt</h3>
+          </div>
+          <p class="featured-project-desc">
+            App de <strong>transporte inteligente</strong> del ecosistema Ciervo. Enfocada en <strong>innovación</strong> y movilidad; actualmente en <strong>proceso de lanzamiento</strong> en Google Play.
+          </p>
+          <ul class="featured-project-highlights">
+            <li>En procesoamiento</li>
+            <li>Transporte inteligente</li>
+            <li>Ecosistema Ciervo</li>
+          </ul>
+          <div class="featured-project-actions">
+            <button type="button" class="featured-project-link featured-project-link--modal" data-project-modal-open
+              aria-haspopup="dialog"
+              data-title="Ubitt"
+              data-description="App de transporte inteligente del ecosistema Ciervo. En proceso de lanzamiento en Google Play."
+              data-description-en="Smart transportation app from the Ciervo ecosystem. Currently launching on Google Play."
+              data-playstore="https://play.google.com/store/apps/details?id=com.ciervo.ubitt"
+              data-appstore="">Ver en Google Play →</button>
           </div>
         </article>
 
@@ -372,6 +426,15 @@
             </div>
           </div>
         </div>
+        <div id="cv" class="cv-downloads" data-reveal>
+          <p class="cv-downloads-label">Curriculum</p>
+          <h3 class="cv-downloads-title">Descarga mi hoja de vida</h3>
+          <p class="cv-downloads-desc">Disponible en español (Colombia) e inglés (USA) para que la uses en procesos de selección.</p>
+          <div class="cv-downloads-actions">
+            <a class="btn btn-cv" href="assets/cv/Gabriel_Ramirez_CV_ES.pdf" download="Gabriel_Ramirez_CV_ES_CO.pdf">CV Español (CO)</a>
+            <a class="btn btn-cv btn-cv--secondary" href="assets/cv/Gabriel_Ramirez_CV_EN.pdf" download="Gabriel_Ramirez_CV_EN_US.pdf">CV English (US)</a>
+          </div>
+        </div>
         <p class="contact-channels-title" data-reveal>Elige cómo conectar</p>
         <div class="contact-scroll-wrapper" data-reveal aria-label="Opciones de contacto en desplazamiento horizontal">
           <div class="contact-scroll-track" data-contact-track>
@@ -430,6 +493,7 @@
       <p class="project-modal__desc" data-modal-desc></p>
       <div class="project-modal__stores">
         <span class="project-modal__soon" data-appstore-soon>Próximamente en App Store</span>
+        <a data-website href="#" target="_blank" rel="noopener noreferrer" class="btn project-modal__store" hidden>Sitio web</a>
         <a data-appstore href="#" target="_blank" rel="noopener noreferrer" class="btn project-modal__store" hidden>App Store</a>
         <a data-playstore href="#" target="_blank" rel="noopener noreferrer" class="btn project-modal__store">Google Play</a>
       </div>

@@ -1039,6 +1039,43 @@ body {
   margin-top: 1.25rem;
 }
 
+.featured-project-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.featured-project-head .featured-project-title {
+  margin-bottom: 0;
+}
+
+.featured-project-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background: #0a0a0a;
+}
+
+.featured-project--ciervo {
+  border-color: rgba(212, 175, 55, 0.28);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.06);
+}
+
+.featured-project--ubitt {
+  border-color: rgba(212, 175, 55, 0.22);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.05);
+}
+
+.featured-project-badge--launching {
+  background: linear-gradient(135deg, #e8c547, #b8860b);
+  color: #1a1408;
+}
+
 .featured-project .featured-project-btn {
   opacity: 1;
   animation: none;
@@ -1495,6 +1532,107 @@ button.project-card {
 /* Bloque CTA: foto + mensaje "trabaja conmigo" */
 .contact-cta {
   margin-bottom: 2.5rem;
+}
+
+.cv-downloads {
+  margin-bottom: 2.5rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(13, 19, 51, 0.55);
+  text-align: center;
+  scroll-margin-top: 5.5rem;
+}
+
+.cv-downloads-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.cv-downloads-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.cv-downloads-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.55;
+}
+
+.cv-downloads-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  justify-content: center;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  opacity: 1;
+  animation: none;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  color: var(--bg-deep);
+  box-shadow: 0 4px 20px var(--accent-glow);
+  transition: var(--transition);
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--accent-glow);
+}
+
+.btn-cv--secondary {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.btn-cv--secondary:hover {
+  border-color: rgba(0, 212, 255, 0.45);
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--white);
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .cv-downloads {
+    padding: 1.35rem 1rem;
+  }
+
+  .cv-downloads-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-cv {
+    width: 100%;
+  }
+
+  .featured-project-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+  }
 }
 
 .contact-cta-content {
